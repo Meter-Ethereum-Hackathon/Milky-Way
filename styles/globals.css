@@ -5,3 +5,7 @@
 body{
     background-color: #1e3a8a
 }
+.app-body {
+    height: 90vh;
+    overflow: auto;
+}

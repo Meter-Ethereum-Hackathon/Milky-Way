@@ -58,12 +58,35 @@ export default function MyAssets() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {
             nfts.map((nft, i) => (
-              <div key={i} className="border shadow rounded-xl overflow-hidden">
-                <img src={nft.image} className="rounded" />
-                <div className="p-4 bg-black">
-                  <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
-                  <button className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded" onClick={() => listNFT(nft)}>List</button>
-                </div>
+            
+              <div
+                key={i}
+                className="border shadow-md shadow-cyan-500/50 rounded-xl m-4 overflow-hidden"
+              >
+                
+
+                  <img
+                    class="object-contain w-full h-56 lg:h-72"
+                    src={nft.image}
+                    alt="Build Your Own Drone"
+                    loading="lazy"
+                  />
+
+                  <div class="p-6">
+                    
+                    <h5 class="mt-4 text-lg text-white font-bold">{nft.name}</h5>
+
+                    <p class="mt-2 text-sm text-white">{nft.price} ETH</p>
+
+                    <button
+                      class="block w-full p-4 mt-4 text-sm font-medium bg-pink-500 rounded-md"
+                      type="button"
+                      onClick={() => listNFT(nft)}
+                    >
+                      LIST
+                    </button>
+                  </div>
+                
               </div>
             ))
           }
