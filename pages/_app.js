@@ -6,7 +6,7 @@ import logo2 from "../public/logo2.png";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="bg-slate-900  h-full w-full ">
+    <div className="bg-gradient-to-b from-slate-900 via-slate-900 to-blue-900 h-full w-full">
       <nav className="flex sticky top-0 items-center justify-between flex-wrap shadow-lg bg-gradient-to-r from-slate-900 via-indigo-800 to-slate-900 p-6  shadow-blue-500/50 ">
         <div className="flex items-center flex-shrink-0 text-white mr-6 ">
           <Image
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
                 MY NFT
               </a>
             </Link>
-            <Link href="/dashboard">
+            <Link href="/dashboardMain">
               <a
                 href="#responsive-header"
                 className="block pr-12 mt-4 lg:inline-block lg:mt-0 text-zinc-200 hover:text-purple-600"
@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps }) {
                 href="#"
                 className="inline-block  text-l px-5 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-fuchsia-500 hover:bg-white/50 mt-4 lg:mt-0 shadow-lg shadow-indigo-400/60"
               >
-                CREATE
+                SELL
               </a>
             </Link>
           </div>

@@ -35,10 +35,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/create-nft.js"
     ],
-    "/dashboard": [
+    "/dashboardMain": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/dashboard.js"
+      "static/chunks/pages/dashboardMain.js"
     ],
     "/my-nft": [
       "static/chunks/webpack.js",
