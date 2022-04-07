@@ -2,7 +2,8 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Web3Modal from "web3modal";
+// import Web3Modal from "web3modal";
+import Router, { useRouter } from "next/router";
 
 import { marketplaceAddress } from "../config";
 
@@ -10,6 +11,7 @@ import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketp
 
 export default function Home() {
   const [nfts, setNfts] = useState([]);
+  const router = useRouter();
   const [loadingState, setLoadingState] = useState("not-loaded");
   useEffect(() => {
     loadNFTs();
@@ -50,62 +52,79 @@ export default function Home() {
     setNfts(items);
     setLoadingState("loaded");
   }
-  async function buyNft(nft) {
+  function openNFT(_nft) {
+    Router.push({
+      pathname: "/nft-desc",
+      query: {
+        price: _nft.price,
+        tokenId: _nft.tokenId,
+        seller: _nft.seller,
+        owner: _nft.owner,
+        image: _nft.image,
+        name: _nft.name,
+        description: _nft.description,
+      },
+    });
     /* needs the user to sign the transaction, so will use Web3Provider and sign it */
-    const web3Modal = new Web3Modal();
-    const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
-    const contract = new ethers.Contract(
-      marketplaceAddress,
-      NFTMarketplace.abi,
-      signer
-    );
+    // const web3Modal = new Web3Modal();
+    // const connection = await web3Modal.connect();
+    // const provider = new ethers.providers.Web3Provider(connection);
+    // const signer = provider.getSigner();
+    // const contract = new ethers.Contract(
+    //   marketplaceAddress,
+    //   NFTMarketplace.abi,
+    //   signer
+    // );
 
     /* user will be prompted to pay the asking proces to complete the transaction */
-    const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
-    const transaction = await contract.createMarketSale(nft.tokenId, {
-      value: price,
-    });
-    await transaction.wait();
-    loadNFTs();
+    // const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
+    // const transaction = await contract.createMarketSale(nft.tokenId, {
+    //   value: price,
+    // });
+    // await transaction.wait();
+    // loadNFTs();
   }
 
   function renderNFT() {
     return (
-      <div className="flex justify-center p-4">
-        <div className="px-4 py-20" style={{ maxWidth: "1600px" }}>
+      <div className="flex justify-center">
+        <div className="px-4 py-10" style={{ maxWidth: "1600px" }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
             {nfts.map((nft, i) => (
               <div
                 key={nft.tokenId}
                 className="border shadow-md shadow-cyan-500/50 rounded-xl m-4 overflow-hidden"
               >
-                <img src={nft.image} />
-                <div className="p-4">
-                  <p
-                    style={{ height: "64px" }}
-                    className="text-2xl antialiased font-semibold"
-                  >
-                    {nft.name}
-                  </p>
-                  <div style={{ height: "70px", overflow: "hidden" }}>
-                    <p className="text-gray-400 antialiased">
-                      {nft.description}
-                    </p>
+                <a
+                  class="relative block border border-gray-100"
+                  href="#"
+                  onClick={() => openNFT(nft)}
+                >
+                 
+
+                  <img
+                    class="object-contain w-full h-56 lg:h-72"
+                    src={nft.image}
+                    alt="Build Your Own Drone"
+                    loading="lazy"
+                  />
+
+                  <div class="p-6">
+                    
+                    <h5 class="mt-4 text-lg text-white font-bold">{nft.name}</h5>
+
+                    <p class="mt-2 text-sm text-white">{nft.price} ETH</p>
+
+                    <button
+                      class="block w-full p-4 mt-4 text-sm font-medium bg-pink-500 rounded-md"
+                      type="button"
+                      onClick={() => openNFT(nft)}
+                    >
+                      VIEW MORE
+                    </button>
                   </div>
-                </div>
-                <div className="p-4 antialiased bg-black">
-                  <p className="text-2xl font-bold text-white">
-                    {nft.price} ETH
-                  </p>
-                  <button
-                    className="mt-4 w-full antialiased bg-pink-500 text-white font-bold py-2 px-12 rounded"
-                    onClick={() => buyNft(nft)}
-                  >
-                    Buy
-                  </button>
-                </div>
+                </a>
+                
               </div>
             ))}
           </div>

@@ -3,23 +3,9 @@
 @tailwind utilities;
 
 body{
-    background-color: #0f172a
+    background-color: #1e3a8a
 }
-
-.carosel-img{
-    width: 75%;
-    height: 45vh;
-    min-height: 0;
-    object-fit:fill
-    
-}
-
-.carosel-img-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carosel-btn-body{
-    display: flex;
+.app-body {
+    height: 90vh;
+    overflow: auto;
 }
