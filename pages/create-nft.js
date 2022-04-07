@@ -79,6 +79,9 @@ export default function CreateItem() {
     <div className="createNFT ">
       <div className=" flex justify-center">
         <div className="w-1/2 flex flex-col pb-12">
+          <label className="text-xs font-semibold inline-block py-4 px-6 uppercase rounded text-amber-600 bg-amber-200 uppercase last:mr-0 mr-1">
+            Asset Name
+          </label>
           <input
             placeholder="Asset Name"
             className="mt-8 border rounded p-4"
