@@ -8,9 +8,10 @@ body{
 
 .carosel-img{
     width: 75%;
-    height: 75vh;
+    height: 45vh;
     min-height: 0;
-    object-fit: fill;
+    object-fit:fill
+    
 }
 
 .carosel-img-body{

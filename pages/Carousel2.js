@@ -31,7 +31,7 @@ const Carousel2 = () => {
         {/* <div className=""> */}
         <button
           type="button"
-          className="btn bg-orange-500 h-5 my-10"
+          className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full h-10 my-10"
           onClick={moveLeft}
         >
           HACK
@@ -39,12 +39,14 @@ const Carousel2 = () => {
         {/* </div> */}
         {images.slice(currentImage, currentImage + 1).map((img, index) => (
           <div className="card w-75" key={index}>
-            <div className="carosel-img-body">
-              <img
-                src={img}
-                alt="cannot render image"
-                className="carosel-img"
-              />
+            <div className="">
+              <div className="carosel-img-body">
+                <img
+                  src={img}
+                  alt="cannot render image"
+                  className="carosel-img "
+                />
+              </div>
             </div>
           </div>
         ))}

@@ -22,7 +22,9 @@ function Dashboard({ nfts, loadingState }) {
     return (
       <div className="dashBoard">
         <div className="p-4">
-          <h2 className="text-2xl py-2">Items Listed</h2>
+          <h2 className="text-2xl py-10 text-white antialiased text-center">
+            NFTs Listed
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
             {nfts.map((nft, i) => (
               <div
@@ -31,8 +33,8 @@ function Dashboard({ nfts, loadingState }) {
               >
                 <img src={nft.image} className="rounded" />
                 <div className="p-4 bg-black">
-                  <p className="text-2xl font-bold text-white">
-                    Price - {nft.price} Eth
+                  <p className="text-xl text-center text-white">
+                    Price - {nft.price} MTR
                   </p>
                 </div>
               </div>
