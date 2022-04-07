@@ -1,12 +1,24 @@
 /* pages/dashboard.js */
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 
 function Dashboard({ nfts, loadingState }) {
+  const [NFTlist, setNFTlist] = useState(null);
+  const rend_fun = () => {
+    console.log("handled created");
+    return loadingState === "loaded" && !nfts.length ? (
+      <h1 className="py-20 px-20 text-3xl text-white antialiased">
+        No NFTs listed {console.log("No NFT LIsted")}
+      </h1>
+    ) : (
+      renderDashBoardNFT()
+    );
+  };
   /**
    * Returns list of NFTs on dashboard
    */
   function renderDashBoardNFT() {
+    console.log("handled renderDashBoardNFT");
     return (
       <div className="dashBoard">
         <div className="p-4">
@@ -31,14 +43,53 @@ function Dashboard({ nfts, loadingState }) {
     );
   }
 
+  function renderDashBoardTabs() {
+    console.log("renderDashBoardTabs");
+    return (
+      <div className="flex justify-center pt-60 ">
+        <div className="grid justify-items-center">
+          <ul className="flex justify-between gap-20">
+            <div>
+              <li className="mr-3">
+                <a
+                  className="inline-block shadow-lg shadow-violet-500/50  h-12 w-60 p-4 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 hover:animate-bounce text-white text-center text-lg antialiased"
+                  href="#"
+                >
+                  Collected
+                </a>
+              </li>
+            </div>
+            <div>
+              <li className="mr-3">
+                <a
+                  className="inline-block shadow-lg shadow-violet-500/50   h-12 w-60 p-4 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 hover:animate-bounce text-white text-center text-lg antialiased"
+                  href="#"
+                  onClick={() => setNFTlist(1)}
+                >
+                  Created
+                </a>
+              </li>
+            </div>
+            <div>
+              <li className="mr-3">
+                <a
+                  className="inline-block shadow-lg shadow-violet-500/50 h-12 w-60 p-4 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 hover:animate-bounce text-white text-center text-lg antialiased"
+                  href="#"
+                >
+                  Sold
+                </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
-      {" "}
-      {loadingState === "loaded" && !nfts.length ? (
-        <h1 className="py-10 px-20 text-3xl">No NFTs listed</h1>
-      ) : (
-        renderDashBoardNFT()
-      )}{" "}
+      {renderDashBoardTabs()}
+      {NFTlist != null ? rend_fun() : "No NFTs"}
     </div>
   );
 }

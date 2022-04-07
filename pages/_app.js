@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import logo2 from "../public/logo2.png";
+// import Carousel from "./Carousel";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -58,7 +59,7 @@ function MyApp({ Component, pageProps }) {
             <Link href="/create-nft">
               <a
                 href="#"
-                className="inline-block  text-l px-5 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-fuchsia-500 hover:bg-white/50 mt-4 lg:mt-0 shadow-lg shadow-indigo-400/60"
+                className="inline-block  text-l px-5 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-fuchsia-500 hover:bg-white/50 mt-4 lg:mt-0 shadow-lg shadow-indigo-400/60 "
               >
                 SELL
               </a>
@@ -66,7 +67,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
       </nav>
-
+      {/* <Carousel></Carousel> */}
       <Component {...pageProps} />
     </div>
   );
