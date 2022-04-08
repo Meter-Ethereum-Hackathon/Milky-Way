@@ -25,7 +25,9 @@ export default function NFTDesc() {
       value: price,
     });
     await transaction.wait();
-    loadNFTs();
+    // loadNFTs();
+    // refresh and go to Home page 
+    router.push("/");
   }
   return (
     <section>
