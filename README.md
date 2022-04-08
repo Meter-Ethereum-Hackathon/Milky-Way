@@ -1,4 +1,8 @@
-# newNFTMarket To Start
+# About Milky Way 
+
+Milky Way is a decentralized fullstack web application developed with Next.js, Solidity, Hardhat, Openzepplin
+
+# Milky Way To Start
 
 run ```npm install```  after git clone
 
