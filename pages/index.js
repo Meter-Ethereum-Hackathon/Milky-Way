@@ -10,6 +10,7 @@ import { marketplaceAddress } from "../config";
 
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
+
 export default function Home() {
   const [nfts, setNfts] = useState([]);
   const router = useRouter();
@@ -102,7 +103,7 @@ export default function Home() {
                   onClick={() => openNFT(nft)}
                 >
                   <img
-                    className="object-contain w-full h-56 lg:h-72"
+                    className="object-cover w-full h-56 lg:h-72"
                     src={nft.image}
                     alt="Build Your Own Drone"
                     loading="lazy"
@@ -140,6 +141,7 @@ export default function Home() {
     <div className="NFTdisplay ">
       <Carousel2 />
       {renderNFT()}
+      
     </div>
   );
 }

@@ -24,11 +24,23 @@ function Dashboard({ nfts, loadingState }) {
                 key={nft.tokenId}
                 className="border shadow rounded-xl overflow-hidden"
               >
-                <img src={nft.image} className="rounded" />
-                <div className="p-4 bg-black">
-                  <p className="text-xl text-center text-white">
-                    Price - {nft.price} MTR
-                  </p>
+                <img src={nft.image} className="object-cover w-full h-56 lg:h-72 rounded" />
+                <div className="p-6 bg-black">
+                    <h5 className="mt-4 text-lg text-white font-bold antialiased ">
+                      {nft.name}
+                    </h5>
+                    <p className="mt-2 text-sm text-white antialiased ">
+                      {nft.price} MTR
+                    </p>
+                    <div className="grid justify-items-center">
+                      <button
+                        className="block w-1/2 p-2 mt-4 text-md font-medium bg-gradient-to-r from-pink-500 to-fuchsia-600 rounded-lg antialiased text-white hover:from-pink-400 hover:to-fuchsia-500 "
+                        type="button"
+                        onClick={() => openNFT(nft)}
+                      >
+                        VIEW MORE
+                      </button>
+                    </div>
                 </div>
               </div>
             ))}

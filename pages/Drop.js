@@ -10,15 +10,15 @@ function Drop() {
           <div className="grid grid-cols-6">
             <p className=" text-white text-lg text-center antialiased pt-5 col-start-3 col-span-2 pb-5">
               {`Hold fast to dreams 
-For if dreams die
-Life is a broken-winged bird
-That cannot fly.
+                For if dreams die
+                Life is a broken-winged bird
+                That cannot fly.
 
-Hold fast to dreams
-For when dreams go
-Life is a barren field
-Frozen with snow.
-- Langston Hughes`}
+                Hold fast to dreams
+                For when dreams go
+                Life is a barren field
+                Frozen with snow.
+                - Langston Hughes`}
             </p>
           </div>
         </div>
