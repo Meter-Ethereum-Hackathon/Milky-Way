@@ -1,29 +1,22 @@
 /* pages/dashboard.js */
 import PropTypes from "prop-types";
 import React, { useState } from "react";
+import MyAssets from "./my-nft";
 
 function Dashboard({ nfts, loadingState }) {
-  const [NFTlist, setNFTlist] = useState(null);
-  const rend_fun = () => {
-    console.log("handled created");
-    return loadingState === "loaded" && !nfts.length ? (
-      <h1 className="py-20 px-20 text-3xl text-white antialiased">
-        No NFTs listed {console.log("No NFT LIsted")}
-      </h1>
-    ) : (
-      renderDashBoardNFT()
-    );
-  };
+  // const [NFTlist, setNFTlist] = useState(null);
+  // const [NFTCollect, setNFTCollect] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
+
   /**
    * Returns list of NFTs on dashboard
    */
   function renderDashBoardNFT() {
-    console.log("handled renderDashBoardNFT");
     return (
       <div className="dashBoard">
         <div className="p-4">
-          <h2 className="text-2xl py-10 text-white antialiased text-center">
-            NFTs Listed
+          <h2 className="text-2xl py-10 text-white antialiased text-center ">
+            My Listed Items
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
             {nfts.map((nft, i) => (
@@ -45,10 +38,54 @@ function Dashboard({ nfts, loadingState }) {
     );
   }
 
+  /**
+   * function that renders NFT collection
+   * @returns collection listed
+   */
+  function renderCollection() {
+    return (
+      <div className="flex justify-center">
+        <div className="p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+            {nfts.map((nft, i) => (
+              <div
+                key={i}
+                className="border shadow-md shadow-cyan-500/50 rounded-xl m-4 overflow-hidden"
+              >
+                <img
+                  className="object-contain w-full h-56 lg:h-72"
+                  src={nft.image}
+                  alt="Build Your Own Drone"
+                  loading="lazy"
+                />
+
+                <div className="p-6">
+                  <h5 className="mt-4 text-lg text-white font-bold">
+                    {nft.name}
+                  </h5>
+
+                  <p className="mt-2 text-sm text-white">{nft.price} ETH</p>
+
+                  <button
+                    className="block w-full p-4 mt-4 text-sm font-medium bg-pink-500 rounded-md"
+                    type="button"
+                    onClick={() => listNFT(nft)}
+                  >
+                    LIST
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   function renderDashBoardTabs() {
     console.log("renderDashBoardTabs");
     return (
-      <div className="flex justify-center pt-60 ">
+      <div className="flex justify-center pt-20 ">
         <div className="grid justify-items-center">
           <ul className="flex justify-between gap-20">
             <div>
@@ -56,6 +93,9 @@ function Dashboard({ nfts, loadingState }) {
                 <a
                   className="inline-block shadow-lg shadow-violet-500/50  h-12 w-60 p-4 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 hover:animate-bounce text-white text-center text-lg antialiased"
                   href="#"
+                  onClick={() => {
+                    setSelectedOption("collected");
+                  }}
                 >
                   Collected
                 </a>
@@ -66,13 +106,15 @@ function Dashboard({ nfts, loadingState }) {
                 <a
                   className="inline-block shadow-lg shadow-violet-500/50   h-12 w-60 p-4 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 hover:animate-bounce text-white text-center text-lg antialiased"
                   href="#"
-                  onClick={() => setNFTlist(1)}
+                  onClick={() => {
+                    setSelectedOption("listed");
+                  }}
                 >
-                  Created
+                  Listed
                 </a>
               </li>
             </div>
-            <div>
+            {/* <div>
               <li className="mr-3">
                 <a
                   className="inline-block shadow-lg shadow-violet-500/50 h-12 w-60 p-4 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 hover:animate-bounce text-white text-center text-lg antialiased"
@@ -81,17 +123,37 @@ function Dashboard({ nfts, loadingState }) {
                   Sold
                 </a>
               </li>
-            </div>
+            </div> */}
           </ul>
         </div>
       </div>
     );
   }
 
+  function displayContent(optionSelected) {
+    switch (optionSelected) {
+      case "collected":
+        return <MyAssets />;
+      case "listed":
+        return loadingState === "loaded" && !nfts.length ? (
+          <h1 className="py-20 px-20 text-2xl text-white antialiased">
+            No NFTs listed {console.log("No NFT LIsted")}
+          </h1>
+        ) : (
+          renderDashBoardNFT()
+        );
+
+      default:
+        break;
+    }
+  }
+
   return (
     <div>
       {renderDashBoardTabs()}
-      {NFTlist != null ? rend_fun() : "No NFTs"}
+      {/* {NFTlist != null ? renderNFTListed() : ""}
+      {NFTCollect != null ? renderNFTCollected() : "No NFT "} */}
+      {displayContent(selectedOption)}
     </div>
   );
 }

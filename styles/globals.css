@@ -9,3 +9,14 @@ body{
     height: 90vh;
     overflow: auto;
 }
+
+.carosel-img{
+    /* max-width: 1600px; */
+    width: 1200px;
+    height: 500px;
+    /* border-radius: 2%; */
+    
+}
+
+
+

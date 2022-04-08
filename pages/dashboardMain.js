@@ -5,7 +5,6 @@ import axios from "axios";
 import Web3Modal from "web3modal";
 import React from "react";
 import Dashboard from "./Dashboard";
-import Carousel2 from "./Carousel2";
 
 import { marketplaceAddress } from "../config";
 
@@ -55,7 +54,6 @@ export default function CreatorDashboard() {
 
   return (
     <div>
-      <Carousel2 />
       <Dashboard nfts={nfts} loadingState={loadingState}></Dashboard>
     </div>
   );

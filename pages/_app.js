@@ -40,11 +40,11 @@ function MyApp({ Component, pageProps }) {
                 href="#responsive-header"
                 className="block pr-8 mt-4 lg:inline-block lg:mt-0 text-zinc-200 hover:text-purple-600"
               > */}
-                {/* view own digital assets (collections) */}
-                {/* MY NFT */}
-              {/* </a>
+            {/* view own digital assets (collections) */}
+            {/* MY NFT */}
+            {/* </a>
             </Link> */}
-            <Link href="/dashboard">
+            <Link href="/dashboardMain">
               <a
                 href="#responsive-header"
                 className="block pr-12 mt-4 lg:inline-block lg:mt-0 text-zinc-200 hover:text-purple-600 hover:animate-pulse"
@@ -66,10 +66,9 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
       </nav>
-    <div className="app-body p-10">
-    <Component {...pageProps} />
-    </div>
-     
+      <div className="app-body p-10">
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 }
