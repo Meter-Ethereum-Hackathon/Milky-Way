@@ -29,6 +29,7 @@ export default function CreateItem() {
       const url = `https://ipfs.infura.io/ipfs/${added.path}`;
       setFileUrl(url);
     } catch (error) {
+      alert("Error uploading file");
       console.log("Error uploading file: ", error);
     }
   }
@@ -47,6 +48,7 @@ export default function CreateItem() {
       /* after file is uploaded to IPFS, return the URL to use it in the transaction */
       return url;
     } catch (error) {
+      alert("Error uploading");
       console.log("Error uploading file: ", error);
     }
   }
@@ -94,7 +96,7 @@ export default function CreateItem() {
             }
           />
           <input
-            placeholder="Asset Price in Eth"
+            placeholder="Asset Price in MTR"
             className="mt-2 border rounded p-4"
             onChange={(e) =>
               updateFormInput({ ...formInput, price: e.target.value })
@@ -109,12 +111,14 @@ export default function CreateItem() {
           {fileUrl && (
             <img className="rounded mt-4" width="350" src={fileUrl} />
           )}
-          <button
-            onClick={listNFTForSale}
-            className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg"
-          >
-            Create NFT
-          </button>
+          <div className="grid justify-items-center">
+            <button
+              onClick={listNFTForSale}
+              className="block w-1/2 p-2 mt-4 text-md font-medium bg-gradient-to-r from-pink-500 to-fuchsia-600 rounded-lg antialiased text-white hover:from-pink-400 hover:to-fuchsia-500"
+            >
+              Create NFT
+            </button>
+          </div>
         </div>
       </div>
     </div>

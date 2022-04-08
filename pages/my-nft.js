@@ -83,15 +83,16 @@ export default function MyAssets() {
                   {nft.name}
                 </h5>
 
-                <p className="mt-2 text-sm text-white">{nft.price} ETH</p>
-
-                <button
-                  className="block w-full p-4 mt-4 text-sm font-medium bg-pink-500 rounded-md"
-                  type="button"
-                  onClick={() => listNFT(nft)}
-                >
-                  LIST
-                </button>
+                <p className="mt-2 text-sm text-white">{nft.price} MTR</p>
+                <div className="grid justify-items-center">
+                  <button
+                    className="block w-1/2 p-2 mt-4 text-md font-medium bg-gradient-to-r from-pink-500 to-fuchsia-600 rounded-lg antialiased text-white hover:from-pink-400 hover:to-fuchsia-500"
+                    type="button"
+                    onClick={() => listNFT(nft)}
+                  >
+                    LIST
+                  </button>
+                </div>
               </div>
             </div>
           ))}

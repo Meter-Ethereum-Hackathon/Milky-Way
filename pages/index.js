@@ -109,19 +109,22 @@ export default function Home() {
                   />
 
                   <div className="p-6">
-                    <h5 className="mt-4 text-lg text-white font-bold">
+                    <h5 className="mt-4 text-lg text-white font-bold antialiased ">
                       {nft.name}
                     </h5>
 
-                    <p className="mt-2 text-sm text-white">{nft.price} ETH</p>
-
-                    <button
-                      className="block w-full p-4 mt-4 text-sm font-medium bg-pink-500 rounded-md"
-                      type="button"
-                      onClick={() => openNFT(nft)}
-                    >
-                      VIEW MORE
-                    </button>
+                    <p className="mt-2 text-sm text-white antialiased ">
+                      {nft.price} MTR
+                    </p>
+                    <div className="grid justify-items-center">
+                      <button
+                        className="block w-1/2 p-2 mt-4 text-md font-medium bg-gradient-to-r from-pink-500 to-fuchsia-600 rounded-lg antialiased text-white hover:from-pink-400 hover:to-fuchsia-500 "
+                        type="button"
+                        onClick={() => openNFT(nft)}
+                      >
+                        VIEW MORE
+                      </button>
+                    </div>
                   </div>
                 </a>
               </div>

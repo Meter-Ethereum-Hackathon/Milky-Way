@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import logo2 from "../public/logo2.png";
+import React from "react";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -66,6 +67,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
       </nav>
+
       <div className="app-body p-10">
         <Component {...pageProps} />
       </div>
