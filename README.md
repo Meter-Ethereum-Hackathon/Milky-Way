@@ -1,6 +1,14 @@
 # About Milky Way 
 
-Milky Way is a decentralized fullstack web application developed with Next.js, Solidity, Hardhat, Openzepplin
+Milky Way is a decentralized fullstack web application developed with Next.js, Solidity, Hardhat, Openzepplin, using IPFS for file storage.
+It is a NFT Marketplace for users to mint, list, sell, and buy NFTs.
+
+Blockchain - Meter (optional RPC provider)
+Ethereum Development Environment - Hardhat
+Front end framework - Next.js & React
+Ethereum web client library - Ethers.js (????? Web3? Meterify??)
+File storage - IPFS
+
 
 # Milky Way To Start
 
@@ -17,33 +25,7 @@ The contract contains standard functions, namely minting tokens, updating listin
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
-Try running some of the following tasks:
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
-# Running the Project
-Clone the project locally and install dependencies
-install using npm or yarn
-
-```shell
-git clone https://github.com/Meter-Ethereum-Hackathon/nft-marketplace.git
-
-#run npm 
-
-npm install 
-
-#or
-
-yarn
-
-```
 # Configurations
 Hardhat chain ID: 1337
 If you see a error on incompatible compiler versions between solidity version and the semver requirement, add the following to solhint.json (this project uses solidity 0.8.4)
