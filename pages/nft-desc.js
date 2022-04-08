@@ -56,7 +56,7 @@ export default function NFTDesc() {
               </div>
 
               <p className="text-lg text-white font-bold">
-                ${router.query.price}
+                {router.query.price}MTR
               </p>
             </div>
 

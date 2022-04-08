@@ -4,11 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import logo2 from "../public/logo2.png";
 import React from "react";
+import Footer from "./Footer";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="bg-slate-900  h-90 overflow-hidden">
-      <nav className="flex sticky-top-0 items-center justify-between flex-wrap shadow-lg bg-gradient-to-r from-slate-900 via-indigo-800 to-slate-900 p-6  shadow-blue-500/50 ">
+    //  overflow-hidden 
+    <div className="bg-slate-900 h-90">
+      <nav className="flex sticky-top-0 items-center justify-between flex-wrap shadow-lg bg-gradient-to-r from-slate-900 via-indigo-800 to-slate-900 p-6 shadow-blue-500/50">
         <div className="flex items-center flex-shrink-0 text-white mr-6 ">
           <Image
             src={logo2}
@@ -67,10 +69,10 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
       </nav>
-
       <div className="app-body p-10">
         <Component {...pageProps} />
       </div>
+      <Footer />
     </div>
   );
 }

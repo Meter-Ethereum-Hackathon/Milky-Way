@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Web3Modal from "web3modal";
 import React from "react";
-import Dashboard from "./Dashboard";
+import Dashboard from "./dashboard";
 
 import { marketplaceAddress } from "../config";
 
