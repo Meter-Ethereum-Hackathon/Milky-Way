@@ -112,7 +112,7 @@ npm version 8.3.1
 solidity version 0.8.4
 
 # Testing
-A sample test file, sample-test.js in the "test" directory, is written to test the contract. To run the sample test, run
+A sample test file, sample-test.js in the [test][1] directory, is written to test the contract. To run the sample test, run
 ```shell
 npx hardhat test
 ```
