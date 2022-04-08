@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // import Web3Modal from "web3modal";
 import Router, { useRouter } from "next/router";
+import Carousel2 from "./Carousel2";
 
 import { marketplaceAddress } from "../config";
 
@@ -96,35 +97,36 @@ export default function Home() {
                 className="border shadow-md shadow-cyan-500/50 rounded-xl m-4 overflow-hidden"
               >
                 <a
-                  class="relative block border border-gray-100"
+                  className="relative block border border-gray-100"
                   href="#"
                   onClick={() => openNFT(nft)}
                 >
-                 
-
                   <img
-                    class="object-contain w-full h-56 lg:h-72"
+                    className="object-contain w-full h-56 lg:h-72"
                     src={nft.image}
                     alt="Build Your Own Drone"
                     loading="lazy"
                   />
 
-                  <div class="p-6">
-                    
-                    <h5 class="mt-4 text-lg text-white font-bold">{nft.name}</h5>
+                  <div className="p-6">
+                    <h5 className="mt-4 text-lg text-white font-bold antialiased ">
+                      {nft.name}
+                    </h5>
 
-                    <p class="mt-2 text-sm text-white">{nft.price} ETH</p>
-
-                    <button
-                      class="block w-full p-4 mt-4 text-sm font-medium bg-pink-500 rounded-md"
-                      type="button"
-                      onClick={() => openNFT(nft)}
-                    >
-                      VIEW MORE
-                    </button>
+                    <p className="mt-2 text-sm text-white antialiased ">
+                      {nft.price} MTR
+                    </p>
+                    <div className="grid justify-items-center">
+                      <button
+                        className="block w-1/2 p-2 mt-4 text-md font-medium bg-gradient-to-r from-pink-500 to-fuchsia-600 rounded-lg antialiased text-white hover:from-pink-400 hover:to-fuchsia-500 "
+                        type="button"
+                        onClick={() => openNFT(nft)}
+                      >
+                        VIEW MORE
+                      </button>
+                    </div>
                   </div>
                 </a>
-                
               </div>
             ))}
           </div>
@@ -134,5 +136,10 @@ export default function Home() {
   }
   if (loadingState === "loaded" && !nfts && !nfts.length)
     return <h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>;
-  return <div className="NFTdisplay ">{renderNFT()}</div>;
+  return (
+    <div className="NFTdisplay ">
+      <Carousel2 />
+      {renderNFT()}
+    </div>
+  );
 }
