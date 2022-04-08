@@ -3,11 +3,11 @@
 Milky Way is a decentralized fullstack web application developed with Next.js, Solidity, Hardhat, Openzepplin, using IPFS for file storage.
 It is a NFT Marketplace for users to mint, list, sell, and buy NFTs.
 
-Blockchain - Meter (optional RPC provider)
-Ethereum Development Environment - Hardhat
-Front end framework - Next.js & React
-Ethereum web client library - Ethers.js (????? Web3? Meterify??)
-File storage - IPFS
+1.Blockchain - Meter (optional RPC provider)
+2.Ethereum Development Environment - Hardhat
+3.Front end framework - Next.js & React
+4.Ethereum web client library - Ethers.js (????? Web3? Meterify??)
+5.File storage - IPFS
 
 
 # Milky Way To Start
