@@ -1,43 +1,78 @@
 /* pages/dashboard.js */
-import { ethers } from "ethers";
+
+
+/* change ethers.js to web3.js/meterify */
+// import { ethers } from "ethers";
+import { meterify as mtr } from "meterify";
+import Web3 from "web3";
+//
+
+
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Web3Modal from "web3modal";
+
+// add detection of MetaMask
+// import detectEthereumProvider from '@metamask/detect-provider';
+//
 
 import { marketplaceAddress } from "../config";
 
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
 export default function CreatorDashboard() {
+
+  
+
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
   useEffect(() => {
     loadNFTs();
   }, []);
   async function loadNFTs() {
+    
     const web3Modal = new Web3Modal({
       network: "mainnet",
       cacheProvider: true,
     });
     const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
+    console.log(connection)
+    /* change ethers.js to web3.js */
+    // const provider = new ethers.providers.Web3Provider(connection);
+    // const signer = provider.getSigner();
+    const meterify = new Web3(connection);
+    // const meterify = mtr(web3_meter);
 
-    const contract = new ethers.Contract(
-      marketplaceAddress,
+    /* change ethers.js to web3.js */
+    // const contract = new ethers.Contract(
+    //   marketplaceAddress,
+    //   NFTMarketplace.abi,
+    //   signer
+    // );
+    console.log("good", meterify)
+    const contract = new meterify.eth.Contract(
       NFTMarketplace.abi,
-      signer
+      marketplaceAddress, 
     );
-    const data = await contract.fetchItemsListed();
+
+    /* change ethers.js to web3.js */
+    // const data = await contract.fetchItemsListed();
+    const data = await contract.methods.fetchItemsListed().call();
 
     const items = await Promise.all(
       data.map(async (i) => {
-        const tokenUri = await contract.tokenURI(i.tokenId);
+        /* change ethers.js to web3.js */
+        // const tokenUri = await contract.tokenURI(i.tokenId);
+        const tokenUri = await contract.methods.tokenURI(i.tokenId).call();
         const meta = await axios.get(tokenUri);
-        let price = ethers.utils.formatUnits(i.price.toString(), "ether");
+
+        /* change ethers.js to web3.js */
+        // let price = ethers.utils.formatUnits(i.price.toString(), "ether");
+        let price = meterify.utils.fromWei(i.price.toString(), "ether");
         let item = {
           price,
-          tokenId: i.tokenId.toNumber(),
+          tokenId: i.tokenId,
           seller: i.seller,
           owner: i.owner,
           image: meta.data.image,
