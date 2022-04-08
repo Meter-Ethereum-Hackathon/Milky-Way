@@ -105,6 +105,6 @@ npx hardhat test
 
 
 # Authors and Acknowledgment
-Original project [tutorial](https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb) by Nadir Dabit
+Original smart contract [tutorial](https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb) by Nadir Dabit
 
 https://github.com/dabit3/polygon-ethereum-nextjs-marketplace
