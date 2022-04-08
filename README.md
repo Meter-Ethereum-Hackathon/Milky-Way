@@ -112,13 +112,13 @@ npm version 8.3.1
 solidity version 0.8.4
 
 # Testing
-A sample test file, sample-test.js in the [test][1] directory, is written to test the contract. To run the sample test, run
+A sample test file, sample-test.js in the "test" directory, is written to test the contract. To run the sample test, run
 ```shell
 npx hardhat test
 ```
 
 
 # Authors and Acknowledgment
-Original project tutorial [1] by Nadir Dabit
-[1]: https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb/ "tutorial"
+Original project [tutorial](https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb) by Nadir Dabit
+
 https://github.com/dabit3/polygon-ethereum-nextjs-marketplace
