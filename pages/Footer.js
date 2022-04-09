@@ -85,6 +85,7 @@ const Footer = () =>{
                     height={20}
                     viewBox="0 0 20 20"
                 />
+                <span className="w-2"></span>
                 MILKY WAY
                 </h6>
                 <p>

@@ -31,10 +31,10 @@ export default function NFTDesc() {
   }
   return (
     <section>
-      <div className="relative max-w-screen-xl px-4 py-8 mx-auto">
+      <div className="relative max-w-screen-xl px-10 py-20 mx-auto">
         <div className="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
-            <div className="aspect-w-1 aspect-h-1">
+            <div className="flex justify-center">
               <img
                 alt="Mobile Phone Stand"
                 className="object-cover rounded-xl"
