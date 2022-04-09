@@ -138,10 +138,9 @@ export default function Home() {
   if (loadingState === "loaded" && !nfts && !nfts.length)
     return <h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>;
   return (
-    <div className="NFTdisplay ">
+    <div className="NFTdisplay p-10">
       <Carousel2 />
       {renderNFT()}
-      
     </div>
   );
 }

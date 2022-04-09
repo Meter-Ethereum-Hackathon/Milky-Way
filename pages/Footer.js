@@ -3,7 +3,7 @@ import logo2 from "../public/logo2.png";
 
 const Footer = () =>{
     return(
-        <footer className="text-center lg:text-left shadow-lg bg-gradient-to-r from-slate-900 via-indigo-800 to-slate-900 shadow-blue-500/50 text-white">
+        <footer className="text-center lg:text-left bg-slate-900 text-white">
         <div className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300 text-white">
             <div class="mr-12 hidden lg:block">
                 <span>Get your favorite NFTs</span>
