@@ -2,7 +2,20 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import MyAssets from "./my-nft";
-
+import Router from "next/router";
+function openNFT(_nft) {
+  Router.push({
+    pathname: "/nft-desc",
+    query: {
+      price: _nft.price,
+      tokenId: _nft.tokenId,
+      seller: _nft.seller,
+      owner: _nft.owner,
+      image: _nft.image,
+      name: _nft.name,
+      description: _nft.description,
+    },
+})}
 function Dashboard({ nfts, loadingState }) {
   // const [NFTlist, setNFTlist] = useState(null);
   // const [NFTCollect, setNFTCollect] = useState(null);
