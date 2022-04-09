@@ -53,7 +53,7 @@ export default function CreatorDashboard() {
   }
 
   return (
-    <div>
+    <div className="p-10">
       <Dashboard nfts={nfts} loadingState={loadingState}></Dashboard>
     </div>
   );

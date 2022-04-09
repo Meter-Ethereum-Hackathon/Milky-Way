@@ -8,8 +8,8 @@ import Footer from "./Footer";
 
 function MyApp({ Component, pageProps }) {
   return (
-    //  overflow-hidden 
-    <div className="bg-slate-900 h-90">
+    //   overflow-hidden h-90
+    <div className="bg-slate-900 ">
       <nav className="flex sticky-top-0 items-center justify-between flex-wrap shadow-lg bg-gradient-to-r from-slate-900 via-indigo-800 to-slate-900 p-6 shadow-blue-500/50">
         <div className="flex items-center flex-shrink-0 text-white mr-6 ">
           <Image
@@ -69,10 +69,13 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
       </nav>
-      <div className="app-body p-10">
-        <Component {...pageProps} />
+      <div className="app-body">
+        <div className="min-h-[70%]">
+          <Component {...pageProps} />
+          
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
