@@ -15,7 +15,11 @@ export default function MyAssets() {
   const [loadingState, setLoadingState] = useState("not-loaded");
   const router = useRouter();
   useEffect(() => {
-    loadNFTs();
+    try {
+      loadNFTs();
+    } catch (err) {
+      console.log('Wallet connection failed. Reason:', err.message);
+    }
   }, []);
   async function loadNFTs() {
     const web3Modal = new Web3Modal({
