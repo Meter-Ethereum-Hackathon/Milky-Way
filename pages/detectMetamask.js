@@ -2,8 +2,8 @@ import MetaMaskOnboarding from '@metamask/onboarding';
 import React from 'react';
 
 const ONBOARD_TEXT = 'Install MetaMask!';
-const CONNECT_TEXT = 'Connect';
-const CONNECTED_TEXT = 'Now Connected';
+const CONNECT_TEXT = 'Connect to your account';
+const CONNECTED_TEXT = 'Now Connecting';
 
 function OnboardingButton() {
   const [buttonText, setButtonText] = React.useState(ONBOARD_TEXT);
