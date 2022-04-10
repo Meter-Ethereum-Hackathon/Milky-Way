@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import MyAssets from "./my-nft";
 import Router from "next/router";
-import { OnboardingButton } from "./detectMetamask";
+
+import OnboardingButton from "./detectMetamask";
 
 function openNFT(_nft) {
   Router.push({
@@ -143,7 +144,7 @@ function Dashboard({ nfts, loadingState }) {
             </div>
             <div>
               <li className="mr-3">
-                <OnboardingButton></OnboardingButton>
+                <OnboardingButton />
               </li>
             </div>
             {/* <div>
