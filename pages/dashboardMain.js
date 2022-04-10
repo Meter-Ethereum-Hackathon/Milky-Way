@@ -8,6 +8,7 @@ import Dashboard from "./dashboard";
 
 import { marketplaceAddress } from "../config";
 
+
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
 export default function CreatorDashboard() {
@@ -17,9 +18,18 @@ export default function CreatorDashboard() {
     loadNFTs();
   }, []);
   async function loadNFTs() {
+
+    const providerOptions = {
+      metamask: {
+        package: true
+      }
+    };
+
     const web3Modal = new Web3Modal({
       network: "mainnet",
-      cacheProvider: true,
+      cacheProvider: false,
+      providerOptions
+      
     });
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
