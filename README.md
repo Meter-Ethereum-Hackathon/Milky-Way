@@ -1,14 +1,13 @@
 # About Milky Way 
 
 Milky Way is a decentralized fullstack web application developed with Next.js, Solidity, Hardhat, Openzepplin, using IPFS for file storage.
-It is a NFT Marketplace for users to mint, list, sell, and buy NFTs.
+It is a NFT Marketplace for users to mint, list, sell, and buy NFTs. 
 
 1. Blockchain - Meter (optional RPC provider)
 2. Ethereum Development Environment - Hardhat
 3. Front end framework - Next.js & React
-4. Ethereum web client library - Ethers.js (????? Web3? Meterify??)
+4. Ethereum web client library - Ethers.js
 5. File storage - IPFS
-
 
 # Milky Way To Start
 
@@ -18,93 +17,20 @@ run ```npm run dev```
 
 # Solidity Contract - NFT.sol
 
-This contract uses OpenZepplin ERC721 standard, developed with Hardhat.
+This contract uses OpenZepplin ERC721 standard, developed with Hardhat(development environment).
 The contract contains standard functions, namely minting tokens, updating listing price, creating sale, reselling tokens, transferring ownership of token, returning unsold market items, returning purchased items for users, returning only listed items for users. 
 
-# Hardhat Solidity Development Environment 
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+# Features
 
+The project is a platform for users to mint, list/relist, sell, and buy NFTs. Users must login with their metamask in order to buy, sell, list, or relist the NFTs. The website recognizes each user's metamask account as a unique valid login account, so users would not have to register to the platform to log in. Users may connect to their metamask in the Dashboard if they have not already done so. The "Collection" button in the dashboard shows users their bought collections, which they can re-list to the marketplace. The "Listed" button will render what users have listed in the marketplace. 
 
-# Configurations
-Hardhat chain ID: 1337
-If you see a error on incompatible compiler versions between solidity version and the semver requirement, add the following to solhint.json (this project uses solidity 0.8.4)
+<img width="967" alt="Screen Shot 2022-04-10 at 9 53 56 AM" src="https://user-images.githubusercontent.com/101501539/162630815-7ab268d8-47dc-4f55-b9df-42a93b6e9277.png">
 
-```JSON
-"compiler-version": ["error", "^0.8.4"] 
+# Meter Sidechain
 
-```
-
-## Hardhat Configuration:
-
-Note that to deploy to Polygon test or main networks, you should update configurations in the hardhat.config.js to use a private key. 
-
-
-```JavaScript
-require("@nomiclabs/hardhat-waffle");
-
-// // This is a sample Hardhat task. To learn how to create your own go to
-// // https://hardhat.org/guides/create-task.html
-// task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
-//   const accounts = await hre.ethers.getSigners();
-
-//   for (const account of accounts) {
-//     console.log(account.address);
-//   }
-// });
-
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
-
-const fs = require("fs");
-//reference to private key
-const privateKey = fs.readFileSync("test/.secret").toString();
-const projectId = "43996abd00574da789e54f0dc7e9aec1";
-
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
-module.exports = {
-  networks: {
-    hardhat: {
-      chainId: 1337,
-    },
-    mumbai: {
-      //Infura
-      url: `https://polygon-mumbai.infura.io/v3/${projectId}`,
-      accounts: [privateKey],
-    },
-    mainnet: {
-      //Infura
-      url: `https://polygon-mainnet.infura.io/v3/${projectId}`,
-      accounts: [privateKey],
-    },
-  },
-  solidity: {
-    version: "0.8.4",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200,
-      },
-    },
-  },
-};
-```
-
-# Versions
-node version 16.14.0
-npm version 8.3.1
-solidity version 0.8.4
-
-# Testing
-A sample test file, sample-test.js in the "test" directory, is written to test the contract. To run the sample test, run
-```shell
-npx hardhat test
-```
+Milky Way runs on the [Meter sidechain](https://meter.io/?p=3429)
 
 
 # Authors and Acknowledgment
 Original smart contract [tutorial](https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb) by Nadir Dabit
-
-https://github.com/dabit3/polygon-ethereum-nextjs-marketplace
