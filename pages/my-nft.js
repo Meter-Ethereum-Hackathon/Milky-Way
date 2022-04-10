@@ -22,39 +22,53 @@ export default function MyAssets() {
     }
   }, []);
   async function loadNFTs() {
+    
+    const providerOptions = {
+      // metamask: {
+      //   package: true
+      // }
+    };
+
     const web3Modal = new Web3Modal({
       network: "mainnet",
       cacheProvider: true,
+      providerOptions
+
     });
-    const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
 
-    const marketplaceContract = new ethers.Contract(
-      marketplaceAddress,
-      NFTMarketplace.abi,
-      signer
-    );
-    const data = await marketplaceContract.fetchMyNFTs();
+    try {
+      const connection = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(connection);
+      const signer = provider.getSigner();
 
-    const items = await Promise.all(
-      data.map(async (i) => {
-        const tokenURI = await marketplaceContract.tokenURI(i.tokenId);
-        const meta = await axios.get(tokenURI);
-        let price = ethers.utils.formatUnits(i.price.toString(), "ether");
-        let item = {
-          price,
-          tokenId: i.tokenId.toNumber(),
-          seller: i.seller,
-          owner: i.owner,
-          image: meta.data.image,
-          tokenURI,
-        };
-        return item;
-      })
-    );
-    setNfts(items);
-    setLoadingState("loaded");
+      const contract = new ethers.Contract(
+        marketplaceAddress,
+        NFTMarketplace.abi,
+        signer
+      );
+      const data = await contract.fetchItemsListed();
+
+      const items = await Promise.all(
+        data.map(async (i) => {
+          const tokenUri = await contract.tokenURI(i.tokenId);
+          const meta = await axios.get(tokenUri);
+          let price = ethers.utils.formatUnits(i.price.toString(), "ether");
+          let item = {
+            price,
+            tokenId: i.tokenId.toNumber(),
+            seller: i.seller,
+            owner: i.owner,
+            image: meta.data.image,
+          };
+          return item;
+        })
+      );
+
+      setNfts(items);
+      setLoadingState("loaded");
+    } catch (err) {
+      console.error('Wallet connection failed. Reason:', err.message);
+    }
   }
   function listNFT(nft) {
     console.log("nft:", nft);
