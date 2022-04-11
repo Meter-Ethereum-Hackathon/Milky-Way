@@ -23,11 +23,12 @@ function Dashboard({ nfts, loadingState }) {
   // const [NFTlist, setNFTlist] = useState(null);
   // const [NFTCollect, setNFTCollect] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
-
+  
   /**
    * Returns list of NFTs on dashboard
    */
   function renderDashBoardNFT() {
+    
     return (
       <div className="dashBoard">
         <div className="p-4">

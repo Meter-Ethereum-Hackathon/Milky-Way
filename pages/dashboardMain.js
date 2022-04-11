@@ -16,9 +16,9 @@ export default function CreatorDashboard() {
   const [loadingState, setLoadingState] = useState("not-loaded");
 
   useEffect(() => {
-    
-      loadNFTs();
-  
+
+    loadNFTs();
+
   }, []);
   async function loadNFTs() {
 
@@ -32,46 +32,46 @@ export default function CreatorDashboard() {
       network: "mainnet",
       cacheProvider: true,
       providerOptions
-      
+
     });
-    
-      try {
-        const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
-  
-    const contract = new ethers.Contract(
-      marketplaceAddress,
-      NFTMarketplace.abi,
-      signer
-    );
-    const data = await contract.fetchItemsListed();
 
-    const items = await Promise.all(
-      data.map(async (i) => {
-        const tokenUri = await contract.tokenURI(i.tokenId);
-        const meta = await axios.get(tokenUri);
-        let price = ethers.utils.formatUnits(i.price.toString(), "ether");
-        let item = {
-          price,
-          tokenId: i.tokenId.toNumber(),
-          seller: i.seller,
-          owner: i.owner,
-          image: meta.data.image,
-        };
-        return item;
-      })
-    );
+    try {
+      const connection = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(connection);
+      const signer = provider.getSigner();
 
-    setNfts(items);
-    setLoadingState("loaded");
-      } catch (err) {
-        console.error('Wallet connection failed. Reason:', err.message);
-      }
+      const contract = new ethers.Contract(
+        marketplaceAddress,
+        NFTMarketplace.abi,
+        signer
+      );
+      const data = await contract.fetchItemsListed();
+
+      const items = await Promise.all(
+        data.map(async (i) => {
+          const tokenUri = await contract.tokenURI(i.tokenId);
+          const meta = await axios.get(tokenUri);
+          let price = ethers.utils.formatUnits(i.price.toString(), "ether");
+          let item = {
+            price,
+            tokenId: i.tokenId.toNumber(),
+            seller: i.seller,
+            owner: i.owner,
+            image: meta.data.image,
+          };
+          return item;
+        })
+      );
+      
+      setNfts(items);
+      setLoadingState("loaded");
+    } catch (err) {
+      console.error('Wallet connection failed. Reason:', err.message);
+    }
     // const connection = await web3Modal.connect();
     // const provider = new ethers.providers.Web3Provider(connection);
     // const signer = provider.getSigner();
-  
+
     // const contract = new ethers.Contract(
     //   marketplaceAddress,
     //   NFTMarketplace.abi,

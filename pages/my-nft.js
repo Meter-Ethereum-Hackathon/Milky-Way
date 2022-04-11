@@ -41,17 +41,17 @@ export default function MyAssets() {
       const provider = new ethers.providers.Web3Provider(connection);
       const signer = provider.getSigner();
 
-      const contract = new ethers.Contract(
+      const marketplaceContract = new ethers.Contract(
         marketplaceAddress,
         NFTMarketplace.abi,
         signer
       );
-      const data = await contract.fetchItemsListed();
-
+      const data = await marketplaceContract.fetchMyNFTs();
+      
       const items = await Promise.all(
         data.map(async (i) => {
-          const tokenUri = await contract.tokenURI(i.tokenId);
-          const meta = await axios.get(tokenUri);
+          const tokenURI = await marketplaceContract.tokenURI(i.tokenId);
+          const meta = await axios.get(tokenURI);
           let price = ethers.utils.formatUnits(i.price.toString(), "ether");
           let item = {
             price,
@@ -59,11 +59,11 @@ export default function MyAssets() {
             seller: i.seller,
             owner: i.owner,
             image: meta.data.image,
+            tokenURI,
           };
           return item;
         })
       );
-
       setNfts(items);
       setLoadingState("loaded");
     } catch (err) {
