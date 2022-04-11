@@ -21,7 +21,7 @@ export default function CreatorDashboard() {
 
   }, []);
   async function loadNFTs() {
-
+    
     const providerOptions = {
       // metamask: {
       //   package: true
@@ -34,9 +34,12 @@ export default function CreatorDashboard() {
       providerOptions
 
     });
-
+    
     try {
+      
       const connection = await web3Modal.connect();
+      
+      console.log(connection);
       const provider = new ethers.providers.Web3Provider(connection);
       const signer = provider.getSigner();
 
@@ -66,7 +69,7 @@ export default function CreatorDashboard() {
       setNfts(items);
       setLoadingState("loaded");
     } catch (err) {
-      console.error('Wallet connection failed. Reason:', err.message);
+      console.log('Wallet connection failed. Reason:', err.message);
     }
     // const connection = await web3Modal.connect();
     // const provider = new ethers.providers.Web3Provider(connection);

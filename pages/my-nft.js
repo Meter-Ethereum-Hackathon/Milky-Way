@@ -11,6 +11,7 @@ import { marketplaceAddress } from "../config";
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
 export default function MyAssets() {
+  console.log("display");
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function MyAssets() {
     }
   }, []);
   async function loadNFTs() {
-    
+    console.log("loading");
     const providerOptions = {
       // metamask: {
       //   package: true

@@ -20,6 +20,7 @@ function openNFT(_nft) {
     },
 })}
 function Dashboard({ nfts, loadingState }) {
+  console.log("Dashboard line 23 nfts",nfts);
   // const [NFTlist, setNFTlist] = useState(null);
   // const [NFTCollect, setNFTCollect] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
@@ -113,6 +114,7 @@ function Dashboard({ nfts, loadingState }) {
 
   function renderDashBoardTabs() {
     console.log("renderDashBoardTabs");
+    
     return (
       <div className="flex justify-center pt-20 ">
         <div className="grid justify-items-center">
@@ -165,6 +167,7 @@ function Dashboard({ nfts, loadingState }) {
   }
 
   function displayContent(optionSelected) {
+    console.log(selectedOption);
     switch (optionSelected) {
       case "collected":
         return <MyAssets />;
@@ -178,6 +181,7 @@ function Dashboard({ nfts, loadingState }) {
         );
 
       default:
+        
         break;
     }
   }
