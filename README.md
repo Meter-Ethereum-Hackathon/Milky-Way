@@ -31,6 +31,9 @@ The project is a platform for users to mint, list/relist, sell, and buy NFTs. Us
 
 Milky Way runs on the [Meter sidechain](https://meter.io/?p=3429)
 
+# Project Demo
+
+Milky Way project demo [here](https://milky-way-nft.herokuapp.com/dashboardMain#)
 
 # Authors and Acknowledgment
 Original smart contract [tutorial](https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb) by Nadir Dabit
